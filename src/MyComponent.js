@@ -117,7 +117,12 @@ class MyComponent extends React.Component {
                       {item.product_description} {item.reason_for_recall}
                   </li>
               ))}
-          </ul></>
+          </ul>
+
+          
+
+          </>
+          
       );
     }
 

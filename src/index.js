@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import './index.css';
+import 'mapbox-gl/dist/mapbox-gl.css';
+
 import App from './App';
 import MyComponent from './MyComponent';
+import MyMap from './MyMap';
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
     <MyComponent />
+    <MyMap />
   </React.StrictMode>,
   document.getElementById('root')
 );
