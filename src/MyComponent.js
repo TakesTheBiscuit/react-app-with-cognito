@@ -79,7 +79,7 @@ class MyComponent extends React.Component {
             attr: "value"
         },
         headers: {
-            Authorization: token
+            Authorization: `Bearer: ${token}`
         }
     };
 
