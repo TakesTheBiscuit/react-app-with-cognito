@@ -17,7 +17,7 @@
     "endpoints": [
       {
         "name": "demo",
-        "endpoint": "http://localhost:3000/demo"
+        "endpoint": "http://127.0.0.1:8000/api/authduser"
       }
     ]
   }
