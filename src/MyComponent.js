@@ -58,6 +58,7 @@ class MyComponent extends React.Component {
     Auth.currentAuthenticatedUser().then(user => {
         console.log('currentAuthenticatedUser', user)
         this.setState({ user})
+        
         alert(user.attributes.email);
       }).catch(() => {
           console.log('Not signed in');
@@ -65,16 +66,31 @@ class MyComponent extends React.Component {
     })
   }
 
-  queryApi() {
+  async queryApi() {
+    const { user } = this.state;
+
     const apiName = 'demo'
     const path = '/'
-    API.get(apiName, path).then(response => {
-      // Add your code here
-      console.log('response',response);
+    const token = user.signInUserSession.idToken.jwtToken;
 
-    }).catch(error => {
-      console.log(error.response)
-    })
+
+    const request = {
+        body: {
+            attr: "value"
+        },
+        headers: {
+            Authorization: token
+        }
+    };
+
+    var response = await API.post(apiName, path, request)
+      .catch(error => {
+          console.log(error);
+      });
+    
+      return response;
+
+
   }
 
   render() {
