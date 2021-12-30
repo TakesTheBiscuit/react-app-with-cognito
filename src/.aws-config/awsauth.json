@@ -1,0 +1,13 @@
+{
+  "domain": "mobiodevdevdev.auth.eu-west-1.amazoncognito.com",
+  "scope": [
+    "phone",
+    "email",
+    "profile",
+    "openid",
+    "aws.cognito.signin.user.admin"
+  ],
+  "redirectSignIn": "http://localhost:3000/callback",
+  "redirectSignOut": "https://localhost:1234",
+  "responseType": "token"
+}
