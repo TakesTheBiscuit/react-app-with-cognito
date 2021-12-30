@@ -83,13 +83,43 @@ class MyComponent extends React.Component {
         }
     };
 
-    var response = await API.post(apiName, path, request)
+    var response = await API.get(apiName, path, request)
       .catch(error => {
           console.log(error);
       });
     
       return response;
 
+
+  }
+
+
+  async getUnits() {
+
+
+    // my-units
+
+    const { user } = this.state;
+
+    const apiName = 'my-units'
+    const path = '/'
+    const token = user.signInUserSession.idToken.jwtToken;
+
+    const request = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    };
+
+    var response = await API.get(apiName, path, request)
+      .catch(error => {
+          console.log(error);
+      });
+
+      alert(response[0]);
+      alert(response[1]);
+    
+      return response;
 
   }
 
@@ -109,6 +139,9 @@ class MyComponent extends React.Component {
 
         <button onClick={() => this.queryApi()}>Query api</button>
 
+        <button onClick={() => this.getUnits()}>Get my units</button>
+
+        
 
         <ul>
 
