@@ -1,7 +1,9 @@
 import React from 'react';
 
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-mapboxgl.accessToken = 'pk......goes here';
+import 'mapbox-gl/dist/mapbox-gl.css';
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiZm9ycGV0ZXJzc2FrZTEiLCJhIjoiY2t4dGRocnJ3MmlqdjJwa29hc2x0M2tpaSJ9.tjh2waXueu1P5Et9iOsMwQ';
 
 class MyMap extends React.Component {
     constructor(props) {
@@ -49,9 +51,59 @@ class MyMap extends React.Component {
                 .addTo(map);
         });
 
+        
+        // Add a route to the map
+
+        // San Francisco
+        const origin = [-122.414, 37.776];
+
+        // Washington DC
+        const destination = [-77.032, 38.913];
+
+        // A simple line from origin to destination.
+        const route = {
+            'type': 'FeatureCollection',
+            'features': [
+                {
+                    'type': 'Feature',
+                    'geometry': {
+                        'type': 'LineString',
+                        'coordinates': [origin, destination]
+                    }
+                }
+            ]
+        };
+
+        // this will be challenging when trying to add data to the map from external
+        // will need to monitor in the state 'map loaded'
+        map.on('load', function() {
+            map.addSource('route', {
+                'type': 'geojson',
+                'data': route
+            });
+
+            map.addLayer({
+                'id': 'route',
+                'source': 'route',
+                'type': 'line',
+                'paint': {
+                    'line-width': 2,
+                    'line-color': '#007cbf'
+                }
+            });
+        });
 
     }
 
+    
+
+
+    // need to do this:
+    // https://docs.mapbox.com/mapbox-gl-js/example/animate-point-along-route/
+
+
+
+    
     render() {
         return (
             <div>
