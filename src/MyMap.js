@@ -8,6 +8,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZm9ycGV0ZXJzc2FrZTEiLCJhIjoiY2t4dGRocnJ3Mmlqd
 class MyMap extends React.Component {
     constructor(props) {
         super(props);
+        console.log('props', props);
+        
         this.state = {
             lng: 12.550343,
             lat: 55.665957,

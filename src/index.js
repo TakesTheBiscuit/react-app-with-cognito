@@ -14,7 +14,9 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
     <MyComponent />
-    <MyMap />
+    
+    <MyMap someProp="SomeValue"/>
+    <MyMap someProp="SomeValue2"/>
   </React.StrictMode>,
   document.getElementById('root')
 );

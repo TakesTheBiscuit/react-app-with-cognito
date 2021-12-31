@@ -93,6 +93,10 @@ class MyComponent extends React.Component {
 
   }
 
+  placeMarker() {
+    // place a marker on the map
+    
+  }
 
   async getUnits() {
 
@@ -141,7 +145,8 @@ class MyComponent extends React.Component {
 
         <button onClick={() => this.getUnits()}>Get my units</button>
 
-        
+        <button onClick={() => this.placeMarker()}>Put a marker on the map</button>
+
 
         <ul>
 
